@@ -58,3 +58,38 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 ---
 
+## Architecture
+
+- x86_64 (64-bit)
+- Linux only
+
+## Setup
+
+**Clone the repository and navigate to the project directory:**
+
+```bash
+git clone https://github.com/s-r-e-e-r-a-j/fastmem.git
+cd fastmem
+```
+A `setup.sh` script is provided to **check, install NASM, and build the library automatically**.
+
+Supported distributions:
+- Debian / Ubuntu
+- RHEL / CentOS / Fedora
+- Arch Linux
+
+Run the setup script:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+The script will:
+- Check whether NASM is installed
+- Install NASM if it is missing
+- Build the fastmem library
+
+After completion, a `build` directory will be generated containing:
+- Object files (`.o`)
+- Static library (`libfastmem.a`)
