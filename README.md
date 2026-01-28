@@ -102,11 +102,27 @@ The header is designed to be compatible with both C and C++ programs.
 - Uses standard C types from `<stddef.h>`
 - Uses `extern "C"` for C++ compatibility
 - Declares all fastmem functions
-To use the library:
 
-```C
-#include "fastmem.h"
+### Using the Header
+The `fastmem.h` header is located in the `include/` directory.
+To use the `fastmem` library in your program, you must tell the compiler where the `include/` directory is, then include the header in your source code.
+
+**Step 1: Include the header in your source code**
+
+```c
+#include <fastmem.h>
 ```
+
+**Step 2: Provide the include path when compiling**
+
+When compiling from another directory, add the `include/` path using `-I`:
+```bash
+gcc main.c -I/path/to/fastmem/include
+```
+**Notes**
+- `<fastmem.h>` is used for external libraries
+- The compiler does not search your project automatically
+- The `-I` option tells the compiler where to find `fastmem.h`
 
 ## Function Reference
 
@@ -233,3 +249,58 @@ Compares up to `n` characters of two strings.
 - `n` → max characters
 
 ---
+
+## Compiling and Linking with fastmem
+After running `./setup.sh`, the fastmem static library is generated in the `build/` directory.
+```text
+fastmem/
+ ├─ include/fastmem.h
+ ├─ build/libfastmem.a
+
+project/
+ ├─ main.c   (or main.cpp)
+ ```
+### Compiling a C program
+**Source code (`main.c`)**
+```c
+#include <fastmem.h>
+
+int main(void) {
+    char buf[64];
+    fastmem_memset(buf, 0, sizeof(buf));
+    return 0;
+}
+```
+**Compile and link**
+
+```bash
+gcc main.c \
+  -I/path/to/fastmem/include \
+  -L/path/to/fastmem/build \
+  -lfastmem
+```
+
+### Compiling a C++ program
+**Source code (`main.cpp`)**
+
+```cpp
+#include <fastmem.h>
+
+int main() {
+    char buf[64];
+    fastmem_memset(buf, 0, sizeof(buf));
+    return 0;
+}
+```
+**Compile and link**
+```bash
+g++ main.cpp \
+  -I/path/to/fastmem/include \
+  -L/path/to/fastmem/build \
+  -lfastmem
+```
+**Important Notes**
+- `-I` points to the directory containing `fastmem.h`
+- `-L` points to the directory containing `libfastmem.a`
+- `-lfastmem` links `libfastmem.a`
+- The order matters: source files first, then `-lfastmem`
