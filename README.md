@@ -154,6 +154,7 @@ Safe replacement for `memcpy` when overlap is possible.
 Compares the first `n` bytes of two memory blocks.
 - `a`, `b` → memory blocks to compare
 - `n` → number of bytes
+
 Returns:
 - `0` if equal
 - `< 0` if `a < b`
@@ -235,6 +236,7 @@ Finds the last occurrence of character `c` in a string.
 
 Compares two strings.
 - `a`, `b` → strings
+
 Returns:
 - `0` if equal
 - `< 0` if `a < b`
