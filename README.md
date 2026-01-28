@@ -116,9 +116,10 @@ To use the library:
 - `dst` → destination buffer
 - `src` → source buffer
 - `n` → number of bytes to copy
-- 
+  
 Behavior is undefined if memory regions overlap.
 
+---
 
 2. `void *fm_memmove(void *dst, const void *src, size_t n);`
 
@@ -130,6 +131,8 @@ Copies `n` bytes from `src` to `dst`, safely handling overlapping regions.
 
 Safe replacement for `memcpy` when overlap is possible.
 
+---
+
 3. `int fm_memcmp(const void *a, const void *b, size_t n);`
 
 Compares the first `n` bytes of two memory blocks.
@@ -140,6 +143,8 @@ Returns:
 - `< 0` if `a < b`
 - `> 0` if `a > b`
 
+---
+
 4. `void *fm_memset(void *s, int c, size_t n);`
 
 Fills a memory block with a byte value.
@@ -147,11 +152,15 @@ Fills a memory block with a byte value.
 `c` → byte value
 `n` → number of bytes
 
+---
+
 5. `void fm_bzero(void *s, size_t n);`
 
 Sets `n` bytes of memory to zero.
 - `s` → memory block
 - `n` → number of bytes
+
+---
 
 6. `void *fm_memchr(const void *s, int c, size_t n);`
 
@@ -161,6 +170,8 @@ Searches for the first occurrence of byte `c` in memory.
 - `n` → number of bytes
 Returns pointer to the byte or `NULL.`
 
+---
+
 7. `void *fm_memrchr(const void *s, int c, size_t n);`
 
 Searches for the last occurrence of byte `c` in memory.
@@ -169,17 +180,23 @@ Searches for the last occurrence of byte `c` in memory.
 - `n` → number of bytes
 Returns pointer or `NULL.`
 
+---
+
 8. `size_t fm_strlen(const char *s);`
 
 Returns the length of a null-terminated string.
 - `s` → string
 Does not include the null terminator.
 
+---
+
 9. `size_t fm_strnlen(const char *s, size_t n);`
 
 Returns the length of a string, limited to n characters.
 - `s` → string
 - `n` → maximum length
+
+---
 
 10. `char *fm_strchr(const char *s, int c);`
 
@@ -188,11 +205,15 @@ Finds the first occurrence of character `c` in a string.
 - `c` → character
 Returns pointer or NULL.
 
+---
+
 11. `char *fm_strrchr(const char *s, int c);`
 
 Finds the last occurrence of character `c` in a string.
 - `s` → string
 - `c` → character
+
+---
 
 12. `int fm_strcmp(const char *a, const char *b);`
 
@@ -203,8 +224,12 @@ Returns:
 - `< 0` if `a < b`
 - `> 0` if `a > b`
 
+---
+
 13. `int fm_strncmp(const char *a, const char *b, size_t n);`
 
 Compares up to `n` characters of two strings.
 - `a`, `b` → strings
 - `n` → max characters
+
+---
