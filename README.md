@@ -153,6 +153,8 @@ gcc main.c -I/path/to/fastmem/include
   
 Behavior is undefined if memory regions overlap.
 
+Returns the original pointer `dst`.
+
 ---
 
 2. `void *fm_memmove(void *dst, const void *src, size_t n);`
@@ -164,6 +166,8 @@ Copies `n` bytes from `src` to `dst`, safely handling overlapping regions.
 - `n` → number of bytes to copy
 
 Safe replacement for `memcpy` when overlap is possible.
+
+Returns the original pointer `dst`.
 
 ---
 
@@ -186,6 +190,8 @@ Fills a memory block with a byte value.
 - `s` → memory block
 - `c` → byte value
 - `n` → number of bytes
+
+Returns the original pointer `s`.
 
 ---
 
