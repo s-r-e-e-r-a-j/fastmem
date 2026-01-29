@@ -219,7 +219,30 @@ Returns pointer or `NULL.`
 
 ---
 
-8. `size_t fm_strlen(const char *s);`
+8. `void *fm_mempcpy(void *dst, const void *src, size_t n);`
+
+Copies `n` bytes from `src` to `dst` and returns a pointer to the byte after the last copied byte.
+
+- `dst` → destination buffer
+- `src` → source buffer
+- `n` → number of bytes
+
+---
+
+9. `void *fm_memccpy(void *dst, const void *src, int c, size_t n);`
+   
+Copies bytes from `src` to `dst` until character `c` is found or `n` bytes are copied.
+
+- `dst` → destination buffer
+- `src` → source buffer
+- `c` → stopping character
+- `n` → number of bytes
+
+Returns pointer to the next byte after `c` in `dst`, or `NULL` if `c` not found.
+
+---
+
+10. `size_t fm_strlen(const char *s);`
 
 Returns the length of a null-terminated string.
 - `s` → string
@@ -228,7 +251,7 @@ Does not include the null terminator.
 
 ---
 
-9. `size_t fm_strnlen(const char *s, size_t n);`
+11. `size_t fm_strnlen(const char *s, size_t n);`
 
 Returns the length of a string, limited to n characters.
 - `s` → string
@@ -236,7 +259,7 @@ Returns the length of a string, limited to n characters.
 
 ---
 
-10. `char *fm_strchr(const char *s, int c);`
+12. `char *fm_strchr(const char *s, int c);`
 
 Finds the first occurrence of character `c` in a string.
 - `s` → string
@@ -246,7 +269,7 @@ Returns pointer or NULL.
 
 ---
 
-11. `char *fm_strrchr(const char *s, int c);`
+13. `char *fm_strrchr(const char *s, int c);`
 
 Finds the last occurrence of character `c` in a string.
 - `s` → string
@@ -254,7 +277,7 @@ Finds the last occurrence of character `c` in a string.
 
 ---
 
-12. `int fm_strcmp(const char *a, const char *b);`
+14. `int fm_strcmp(const char *a, const char *b);`
 
 Compares two strings.
 - `a`, `b` → strings
@@ -266,11 +289,78 @@ Returns:
 
 ---
 
-13. `int fm_strncmp(const char *a, const char *b, size_t n);`
+15. `int fm_strncmp(const char *a, const char *b, size_t n);`
 
 Compares up to `n` characters of two strings.
 - `a`, `b` → strings
 - `n` → max characters
+
+---
+
+16. `char *fm_strcpy(char *dst, const char *src);`
+ 
+Copies a null-terminated string from `src` to `dst`.
+
+- `dst` → destination buffer
+- `src` → source string
+
+Returns pointer to `dst`.
+
+---
+
+17. `char *fm_strncpy(char *dst, const char *src, size_t n);`
+
+Copies up to `n` characters from `src` to `dst`.
+
+- `dst` → destination buffer
+- `src` → source string
+- `n` → maximum number of characters
+
+Returns pointer to `dst`.
+
+---
+
+18. `char *fm_stpcpy(char *dst, const char *src);`
+
+Copies a null-terminated string from `src` to `dst`.
+
+- `dst` → destination buffer
+- `src` → source string
+
+Returns pointer to the null terminator in `dst`.
+
+---
+
+19. `size_t fm_strspn(const char *s, const char *accept);`
+
+Counts how many characters from the beginning of `s` match characters in `accept`.
+
+- `s` → string
+- `accept` → characters to match
+
+returns the count.
+
+---
+
+20. `size_t fm_strcspn(const char *s, const char *reject);`
+
+Counts characters from the start of `s` until a character from `reject` is found.
+
+- `s` → string
+- `reject` → characters not allowed
+
+returns the count.
+
+---
+
+21. `char *fm_strpbrk(const char *s, const char *accept);`
+
+Finds the first occurrence in s of any character from accept.
+
+- `s` → string
+- `accept` → characters to search for
+
+Returns pointer or `NULL`.
 
 ---
 
