@@ -58,10 +58,10 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 ---
 
-## Architecture
-
-- x86_64 (64-bit)
-- Linux only
+## Architecture:
+  - amd64 (x86_64, 64-bit)
+## Platform:
+  - Linux only
 
 ## Setup
 
