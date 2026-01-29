@@ -204,7 +204,7 @@ Searches for the first occurrence of byte `c` in memory.
 - `c` → byte to search
 - `n` → number of bytes
 
-Returns pointer to the byte or `NULL.`
+Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
@@ -215,7 +215,7 @@ Searches for the last occurrence of byte `c` in memory.
 - `c` → byte to search
 - `n` → number of bytes
 
-Returns pointer or `NULL.`
+Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
@@ -265,7 +265,7 @@ Finds the first occurrence of character `c` in a string.
 - `s` → string
 - `c` → character
 
-Returns pointer or NULL.
+Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
@@ -274,6 +274,8 @@ Returns pointer or NULL.
 Finds the last occurrence of character `c` in a string.
 - `s` → string
 - `c` → character
+
+Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
