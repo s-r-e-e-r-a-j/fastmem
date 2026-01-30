@@ -45,6 +45,10 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memccpy`
 
+`fm_memset_s`
+
+`fm_memxor`
+
 
 ### String functions
 
@@ -72,7 +76,17 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_strpbrk`
 
+`fm_strcat`
 
+`fm_strncat`
+
+`fm_strstr`
+
+`fm_strrev`
+
+`fm_strcount`
+
+`fm_strcmp_i`
 
 ---
 
