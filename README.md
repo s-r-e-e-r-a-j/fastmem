@@ -262,7 +262,29 @@ Returns pointer to the next byte after `c` in `dst`, or `NULL` if `c` not found.
 
 ---
 
-10. `size_t fm_strlen(const char *s);`
+10. `void *fm_memset_s(void *s, int c, size_t n);`
+
+Sets the first `n` bytes of the memory block pointed to by `s` to the byte value `c`.
+- `s` → destination buffer
+- `c` → byte value to set
+- `n` → number of bytes to write
+  
+Returns the original pointer `s`.
+
+---
+
+11. `void fm_memxor(void *dst, const void *src, size_t n);`
+
+Performs a byte-wise XOR between `dst` and `src` and stores the result in `dst`.
+- `dst` → destination buffer (modified in place)
+- `src` → source buffer
+- `n` → number of bytes to process
+
+No value is returned.
+
+---
+
+12. `size_t fm_strlen(const char *s);`
 
 Returns the length of a null-terminated string.
 - `s` → string
@@ -271,7 +293,7 @@ Does not include the null terminator.
 
 ---
 
-11. `size_t fm_strnlen(const char *s, size_t n);`
+13. `size_t fm_strnlen(const char *s, size_t n);`
 
 Returns the length of a string, limited to n characters.
 - `s` → string
@@ -279,7 +301,7 @@ Returns the length of a string, limited to n characters.
 
 ---
 
-12. `char *fm_strchr(const char *s, int c);`
+14. `char *fm_strchr(const char *s, int c);`
 
 Finds the first occurrence of character `c` in a string.
 - `s` → string
@@ -289,7 +311,7 @@ Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-13. `char *fm_strrchr(const char *s, int c);`
+15. `char *fm_strrchr(const char *s, int c);`
 
 Finds the last occurrence of character `c` in a string.
 - `s` → string
@@ -299,7 +321,7 @@ Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-14. `int fm_strcmp(const char *a, const char *b);`
+16. `int fm_strcmp(const char *a, const char *b);`
 
 Compares two strings.
 - `a`, `b` → strings
@@ -311,7 +333,7 @@ Returns:
 
 ---
 
-15. `int fm_strncmp(const char *a, const char *b, size_t n);`
+17. `int fm_strncmp(const char *a, const char *b, size_t n);`
 
 Compares up to `n` characters of two strings.
 - `a`, `b` → strings
@@ -325,7 +347,7 @@ Returns:
 
 ---
 
-16. `char *fm_strcpy(char *dst, const char *src);`
+18. `char *fm_strcpy(char *dst, const char *src);`
  
 Copies a null-terminated string from `src` to `dst`.
 
@@ -336,7 +358,7 @@ Returns a pointer to `dst`.
 
 ---
 
-17. `char *fm_strncpy(char *dst, const char *src, size_t n);`
+19. `char *fm_strncpy(char *dst, const char *src, size_t n);`
 
 Copies up to `n` characters from `src` to `dst`.
 
@@ -348,7 +370,7 @@ Returns a pointer to `dst`.
 
 ---
 
-18. `char *fm_stpcpy(char *dst, const char *src);`
+20. `char *fm_stpcpy(char *dst, const char *src);`
 
 Copies a null-terminated string from `src` to `dst`.
 
@@ -359,7 +381,7 @@ Returns pointer to the null terminator in `dst`.
 
 ---
 
-19. `size_t fm_strspn(const char *s, const char *accept);`
+21. `size_t fm_strspn(const char *s, const char *accept);`
 
 Counts how many characters from the beginning of `s` match characters in `accept`.
 
@@ -370,7 +392,7 @@ Returns the count.
 
 ---
 
-20. `size_t fm_strcspn(const char *s, const char *reject);`
+22. `size_t fm_strcspn(const char *s, const char *reject);`
 
 Counts characters from the start of `s` until a character from `reject` is found.
 
@@ -381,7 +403,7 @@ Returns the count.
 
 ---
 
-21. `char *fm_strpbrk(const char *s, const char *accept);`
+23. `char *fm_strpbrk(const char *s, const char *accept);`
 
 Finds the first occurrence in `s` of any character from `accept`.
 
@@ -389,6 +411,72 @@ Finds the first occurrence in `s` of any character from `accept`.
 - `accept` → characters to search for
 
 Returns a pointer to the first matching character, or `NULL` if none found.
+
+---
+
+24. `char *fm_strcat(char *dst, const char *src);`
+
+Appends the string `src` to the end of `dst`.
+- `dst` → destination string (must have enough space)
+- `src` → source string
+  
+Returns the original pointer `dst`.
+
+---
+
+25. `char *fm_strncat(char *dst, const char *src, size_t n);`
+
+Appends at most `n` characters from `src` to `dst`.
+- `dst` → destination string (must have enough space)
+- `src` → source string
+- `n` → maximum number of characters to append
+  
+Returns the original pointer `dst`.
+
+---
+
+26. `char *fm_strstr(const char *haystack, const char *needle);`
+
+Finds the first occurrence of the string `needle` in `haystack`.
+
+- `haystack` → string to search in
+- `needle` → substring to search for
+  
+Returns a pointer to the first occurrence, or `NULL` if not found.
+
+---
+
+27. `char *fm_strrev(char *s);`
+
+Reverses the string `s` in place.
+
+- `s` → string to reverse
+
+Returns the original pointer `s`.
+
+---
+
+28. `size_t fm_strcount(const char *s, int c);`
+
+Counts the number of occurrences of character `c` in the string `s`.
+
+- `s` → input string
+- `c` → character to count
+
+Returns the number of occurrences.
+
+---
+
+29. `int fm_strcmp_i(const char *a, const char *b);`
+
+Compares two strings case-insensitively.
+- `a` → first string
+- `b` → second string
+  
+Returns:
+`0` if equal
+`< 0` if `a < b`
+`0` if `a > b`
 
 ---
 
