@@ -474,9 +474,9 @@ Compares two strings case-insensitively.
 - `b` → second string
   
 Returns:
-`0` if equal
-`< 0` if `a < b`
-`0` if `a > b`
+- `0` if equal
+- `< 0` if `a < b`
+- `> 0` if `a > b`
 
 ---
 
