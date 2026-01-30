@@ -23,6 +23,7 @@ void *fm_memccpy(void *dst, const void *src, int c, size_t n);
 void *fm_memset_s(void *s, int c, size_t n);
 void fm_memxor(void *dst, const void *src, size_t n);
 
+/* String functions */
 size_t fm_strlen(const char *s);
 size_t fm_strnlen(const char *s, size_t n);
 char *fm_strchr(const char *s, int c);
