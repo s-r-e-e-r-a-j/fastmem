@@ -45,7 +45,7 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memccpy`
 
-`fm_memset_s`
+`fm_memswap`
 
 `fm_memxor`
 
@@ -262,14 +262,17 @@ Returns pointer to the next byte after `c` in `dst`, or `NULL` if `c` not found.
 
 ---
 
-10. `void *fm_memset_s(void *s, int c, size_t n);`
+10. `void fm_memswap(void *a, void *b, size_t n);`
 
-Sets the first `n` bytes of the memory block pointed to by `s` to the byte value `c`.
-- `s` → destination buffer
-- `c` → byte value to set
-- `n` → number of bytes to write
-  
-Returns the original pointer `s`.
+Swaps `n` bytes between two memory regions.
+- `a` → first memory buffer
+- `b` → second memory buffer
+- `n` → number of bytes to swap
+
+Both memory regions must be valid and at least `n` bytes long.
+Behavior is undefined if the memory regions overlap.
+
+Returns nothing.
 
 ---
 
