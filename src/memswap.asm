@@ -1,17 +1,20 @@
 ; Developer: Sreeraj
 ; GitHub: https://github.com/s-r-e-e-r-a-j
 
-global fm_memset_s
+global fm_memswap
 section .text
-fm_memset_s:
-    mov rax, rdi
-.loop:
+fm_memswap:
     test rdx, rdx
     jz .done
-    mov byte [rdi], sil
+.loop:
+    mov al, [rdi]
+    mov bl, [rsi]
+    mov [rdi], bl
+    mov [rsi], al
     inc rdi
+    inc rsi
     dec rdx
-    jmp .loop
+    jnz .loop
 .done:
     ret
 

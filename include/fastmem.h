@@ -20,7 +20,7 @@ void *fm_memchr(const void *s, int c, size_t n);
 void *fm_memrchr(const void *s, int c, size_t n);
 void *fm_mempcpy(void *dst, const void *src, size_t n);
 void *fm_memccpy(void *dst, const void *src, int c, size_t n);
-void *fm_memset_s(void *s, int c, size_t n);
+void *fm_memswap(void *a, void *b, size_t n);
 void fm_memxor(void *dst, const void *src, size_t n);
 
 /* String functions */
