@@ -303,7 +303,7 @@ Finds the first differing byte between two memory blocks.
 - `b` → second memory block
 - `n` → number of bytes to compare
   
-Returns the zero-based index of the first differing byte, or `-1` if both blocks are identical.
+Returns the zero-based index of the first differing byte, or `n` if both blocks are identical.
 
 ---
 
