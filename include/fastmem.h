@@ -24,6 +24,7 @@ void fm_memswap(void *a, void *b, size_t n);
 void fm_memxor(void *dst, const void *src, size_t n);
 size_t fm_memdiff(const void *a, const void *b, size_t n);
 int fm_timingsafe_memcmp(const void *a, const void *b, size_t n);
+void *fm_memmem(const void *haystack, size_t haystack_len, const void *needle, size_t needle_len);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -46,7 +47,6 @@ size_t fm_strcount(const char *s, int c);
 int fm_strcmp_i(const char *a, const char *b);
 int fm_strstartswith(const char *str, const char *prefix);
 int fm_strendswith(const char *str, const char *suffix);
-void *fm_memmem(const void *haystack, size_t haystack_len,const void *needle, size_t needle_len);
 
 #ifdef __cplusplus
 }
