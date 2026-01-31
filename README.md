@@ -49,6 +49,11 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memxor`
 
+`fm_memdiff`
+
+`fm_timingsafe_memcmp`
+
+`fm_memmem`
 
 ### String functions
 
@@ -87,6 +92,10 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 `fm_strcount`
 
 `fm_strcmp_i`
+
+`fm_strstartswith`
+
+`fm_strendswith`
 
 ---
 
