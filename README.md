@@ -55,6 +55,10 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memmem`
 
+`fm_memcount`
+
+`fm_memnot`
+
 ### String functions
 
 `fm_strlen`
@@ -96,6 +100,12 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 `fm_strstartswith`
 
 `fm_strendswith`
+
+`fm_strnchr`
+
+`fm_strnrev`
+
+`fm_strisalnum`
 
 ---
 
