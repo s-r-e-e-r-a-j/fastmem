@@ -357,8 +357,8 @@ Returns the number of times `c` appears in the memory block.
 16. `void *fm_memnot(void *s, size_t n);`
 
 Performs a bitwise NOT operation on each of the first `n` bytes of memory block `s`.
-`s` → pointer to the memory block
-`n` → number of bytes to modify
+- `s` → pointer to the memory block
+- `n` → number of bytes to modify
 Each byte is inverted in place.
 
 Returns the original pointer `s`.
