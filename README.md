@@ -359,6 +359,7 @@ Returns the number of times `c` appears in the memory block.
 Performs a bitwise NOT operation on each of the first `n` bytes of memory block `s`.
 - `s` → pointer to the memory block
 - `n` → number of bytes to modify
+
 Each byte is inverted in place.
 
 Returns the original pointer `s`.
@@ -599,6 +600,7 @@ Returns a pointer to the matched character, or `NULL` if not found.
 Reverses the first `n` characters of string `s` in place.
 - `s` → pointer to the string
 - `n` → number of characters to reverse
+
 Characters beyond `n` remain unchanged.
 
 Returns the original pointer `s`.
