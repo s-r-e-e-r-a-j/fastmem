@@ -693,7 +693,8 @@ Returns `1` if strings are equal (ignoring case), otherwise `0`.
 
 45. `char *fm_strtrim(char *s);`
 
-Removes leading and trailing ASCII whitespace from a string in place.
+Removes leading and trailing ASCII bytes ≤ 0x20 (spaces and control characters)
+from a string in place.
 
 - `s` → pointer to a mutable null-terminated string
 
