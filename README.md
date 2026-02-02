@@ -739,7 +739,7 @@ int main(void) {
 gcc main.c \
   -I/path/to/fastmem/include \
   -L/path/to/fastmem/build \
-  -lfastmem
+  -lfastmem -o main
 ```
 
 ### Compiling a C++ program
@@ -759,7 +759,7 @@ int main() {
 g++ main.cpp \
   -I/path/to/fastmem/include \
   -L/path/to/fastmem/build \
-  -lfastmem
+  -lfastmem -o main
 ```
 **Important Notes**
 - `-I` points to the directory containing `fastmem.h`
