@@ -447,7 +447,7 @@ Searches a memory area for the first byte that does NOT match `c`.
 
 Returns:
 - Pointer to the first byte not equal to `c`
-- If all bytes equal `c`, returns pointer after last examined byte
+- NULL (0) if all bytes in the range equal `c`
 
 ---
 
