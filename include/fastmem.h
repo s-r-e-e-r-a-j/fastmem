@@ -32,6 +32,9 @@ int fm_memiszero(const void *buf, size_t len);
 int fm_memne(const void *a, const void *b, size_t len);
 int fm_memcasecmp(const void *a, const void *b, size_t len);
 void *fm_memchr_not(const void *buf, int c, size_t len);
+size_t fm_memindex(const void *buf, size_t len, int byte);
+int fm_memall_eq(const void *buf, size_t len, int byte);
+void* fm_memset32(void *buf, size_t count, uint32_t value);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -64,6 +67,9 @@ int fm_strisempty(const char *s);
 int fm_strnstartswith(const char *s, const char *prefix, size_t n);
 char *fm_strskip(const char *s, char c);
 int fm_strnendswith(const char *s, const char *suffix, size_t n);
+char* fm_strchrnul(const char *s, int c);
+size_t fm_strcount_char(const char *s, int c);
+size_t fm_align_up(size_t value, size_t align);
 
 #ifdef __cplusplus
 }
