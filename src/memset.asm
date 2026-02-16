@@ -5,11 +5,11 @@ global fm_memset
 section .text
 fm_memset:
     mov rax, rdi
-    mov al, sil
+    mov cl, sil
 .loop:
     test rdx, rdx
     jz .done
-    mov [rdi], al
+    mov [rdi], cl
     inc rdi
     dec rdx
     jmp .loop
