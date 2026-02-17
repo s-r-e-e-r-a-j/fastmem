@@ -586,8 +586,8 @@ Returns how many matching bytes appear in a row from the start.
 
 Computes a simple 64-bit non-cryptographic hash of memory.
 
-`ptr` → memory block
-`n` → number of bytes
+- `ptr` → memory block
+- `n` → number of bytes
 
 Returns 64-bit hash value
 
