@@ -4,6 +4,7 @@
 global fm_memreverse
 section .text
 fm_memreverse:
+    push rbx
     mov rax, rdi
     test rsi, rsi
     jz .done
@@ -24,6 +25,7 @@ fm_memreverse:
     jmp .loop
 
 .done:
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
