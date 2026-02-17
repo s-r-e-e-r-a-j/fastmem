@@ -35,6 +35,11 @@ void *fm_memchr_not(const void *buf, int c, size_t len);
 size_t fm_memindex(const void *buf, size_t len, int byte);
 int fm_memall_eq(const void *buf, size_t len, int byte);
 void* fm_memset32(void *buf, size_t count, uint32_t value);
+void *fm_memreverse(void *ptr, size_t n);
+void *fm_memchr2(const void *ptr, int a, int b, size_t n);
+void *fm_memfindnot(const void *ptr, int value, size_t n);
+size_t fm_memrun(const void *ptr, int value, size_t n);
+uint64_t fm_memhash64(const void *ptr, size_t n);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -70,6 +75,16 @@ int fm_strnendswith(const char *s, const char *suffix, size_t n);
 char* fm_strchrnul(const char *s, int c);
 size_t fm_strcount_char(const char *s, int c);
 size_t fm_align_up(size_t value, size_t align);
+int fm_strisalpha(const char *s);
+int fm_strisdigit(const char *s);
+int fm_strisspace(const char *s);
+int fm_strisprint(const char *s);
+int fm_strislower(const char *s);
+int fm_strisupper(const char *s);
+int fm_strisxdigit(const char *s);
+int fm_strisascii(const char *s);
+char *fm_strtolower(char *s);
+char *fm_strtoupper(char *s);
 
 #ifdef __cplusplus
 }
