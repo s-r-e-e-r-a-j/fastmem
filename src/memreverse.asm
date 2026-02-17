@@ -14,10 +14,10 @@ fm_memreverse:
     cmp rdi, rdx
     jae .done
 
-    mov al, [rdi]
+    mov bl, [rdi]
     mov cl, [rdx]
     mov [rdi], cl
-    mov [rdx], al
+    mov [rdx], bl
 
     inc rdi
     dec rdx
