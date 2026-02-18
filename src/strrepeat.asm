@@ -7,16 +7,16 @@ fm_strrepeat:
     mov rax, rdi
     test rdx, rdx
     jz .finish
-    mov bl, [rsi]
-    test bl, bl
+    mov r8b, [rsi]
+    test r8b, r8b
     jz .finish
 .repeat:
     mov rcx, rsi
 .copy:
-    mov bl, [rcx]
-    test bl, bl
+    mov r8b, [rcx]
+    test r8b, r8b
     jz .next
-    mov [rdi], bl
+    mov [rdi], r8b
     inc rdi
     inc rcx
     jmp .copy
