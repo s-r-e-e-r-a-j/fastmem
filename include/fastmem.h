@@ -40,6 +40,12 @@ void *fm_memchr2(const void *ptr, int a, int b, size_t n);
 void *fm_memfindnot(const void *ptr, int value, size_t n);
 size_t fm_memrun(const void *ptr, int value, size_t n);
 uint64_t fm_memhash64(const void *ptr, size_t n);
+uint64_t fm_memsum(const void *ptr, size_t n);
+uint8_t fm_memavg(const void *ptr, size_t n);
+size_t fm_memreplace(void *ptr, size_t n, int oldv, int newv);
+int fm_memisuniform(const void *ptr, size_t n);
+void *fm_memrotate_left(void *ptr, size_t n, size_t k);
+void *fm_memrotate_right(void *ptr, size_t n, size_t k);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -85,6 +91,8 @@ int fm_strisxdigit(const char *s);
 int fm_strisascii(const char *s);
 char *fm_strtolower(char *s);
 char *fm_strtoupper(char *s);
+char *fm_strremove_char(char *s, int c);
+char *fm_strrepeat(char *dst, const char *pattern, size_t count);
 
 #ifdef __cplusplus
 }
