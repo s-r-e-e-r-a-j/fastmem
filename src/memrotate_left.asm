@@ -14,7 +14,7 @@ fm_memrotate_left:
     test rcx, rcx
     jz .done
 .outer:
-    mov al, [rdi]
+    mov r10b, [rdi]
     mov r8, rdi
     mov r9, rsi
     dec r9
@@ -24,7 +24,7 @@ fm_memrotate_left:
     inc r8
     dec r9
     jnz .shift
-    mov [rdi+rsi-1], al
+    mov [rdi+rsi-1], r10b
     dec rcx
     jnz .outer
 .done:
