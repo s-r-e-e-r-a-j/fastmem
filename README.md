@@ -85,6 +85,18 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memhash64`
 
+`fm_memsum`
+
+`fm_memavg`
+
+`fm_memreplace`
+
+`fm_memisuniform`
+
+`fm_memrotate_left`
+
+`fm_memrotate_right`
+
 ### String functions
 
 `fm_strlen`
@@ -172,6 +184,10 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 `fm_strtolower`
 
 `fm_strtoupper`
+
+`fm_strremove_char`
+
+`fm_strrepeat`
 
 ---
 
