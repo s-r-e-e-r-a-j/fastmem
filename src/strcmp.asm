@@ -4,6 +4,7 @@
 global fm_strcmp
 section .text
 fm_strcmp:
+   push rbx
 .loop:
     mov al, [rdi]
     mov bl, [rsi]
@@ -16,11 +17,13 @@ fm_strcmp:
     jmp .loop
 .eq:
     xor eax, eax
+    pop rbx
     ret
 .diff:
     movzx eax, al
     movzx ebx, bl
     sub eax, ebx
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
