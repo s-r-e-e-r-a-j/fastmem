@@ -712,7 +712,7 @@ Checks whether a memory buffer ends with a given `suffix`.
 - `suffix` → suffix memory block
 - `suffix_len` → size of suffix in bytes
 
-Returns `true` if the last `suffix_len bytes` of `buf` match suffix, otherwise `false`.
+Returns `true` if the last `suffix_len` bytes of `buf` match suffix, otherwise `false`.
 
 Returns `false` if `suffix_len > len`.
 
@@ -734,15 +734,22 @@ Returns `NULL` if no match is found.
 
 ---
 
-38. `void *fm_memdup_into(void *dst, const void *src, size_t n);`
+38. `bool fm_memstarts_with(const void *buf, size_t len, const void *prefix, size_t prefix_len);`
 
-Copies `n` bytes from `src` to `dst`.
+Checks whether a memory buffer begins with a given `prefix`.
 
-- `dst` → destination buffer
-- `src` → source buffer
-- `n` → number of bytes to copy
+- `buf` → memory buffer to check
+- `len` → size of buffer in bytes
+- `prefix` → prefix memory block
+- `prefix_len` → size of prefix in bytes
 
-Returns the original pointer `dst`.
+Returns `true` if the first `prefix_len` bytes of `buf` match `prefix`.
+
+Returns `false` if they differ.
+
+Returns `false` if `prefix_len > len`.
+
+Returns `true` if `prefix_len == 0`.
 
 ---
 
