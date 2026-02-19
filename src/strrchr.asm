@@ -4,6 +4,7 @@
 global fm_strrchr
 section .text
 fm_strrchr:
+    push rbx
     xor rax, rax
 .loop:
     mov bl, [rdi]
@@ -14,6 +15,7 @@ fm_strrchr:
     inc rdi
     jmp .loop
 .done:
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
