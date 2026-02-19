@@ -4,6 +4,7 @@
 global fm_memcmp
 section .text
 fm_memcmp:
+    push rbx
     test rdx, rdx
     jz .eq
 .loop:
@@ -17,11 +18,13 @@ fm_memcmp:
     jnz .loop
 .eq:
     xor eax, eax
+    pop rbx
     ret
 .diff:
     movzx eax, al
     movzx ebx, bl
     sub eax, ebx
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
