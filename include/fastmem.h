@@ -49,7 +49,7 @@ void *fm_memrotate_left(void *ptr, size_t n, size_t k);
 void *fm_memrotate_right(void *ptr, size_t n, size_t k);
 bool fm_memends_with(const void *buf, size_t len, const void *suffix, size_t suffix_len);
 void *fm_memchr3(const void *buf, int a, int b, int c, size_t n);
-void *fm_memdup_into(void *dst, const void *src, size_t n);
+bool fm_memstarts_with(const void *buf, size_t len, const void *prefix, size_t prefix_len);
 ssize_t fm_memfirst_index(const void *buf, int c, size_t n);
 ssize_t fm_memlast_index(const void *buf, int c, size_t n);
 
