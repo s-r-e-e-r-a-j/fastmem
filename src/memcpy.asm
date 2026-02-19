@@ -8,8 +8,8 @@ fm_memcpy:
     test rdx, rdx
     jz .done
 .loop:
-    mov bl, [rsi]
-    mov [rdi], bl
+    mov cl, [rsi]
+    mov [rdi], cl
     inc rsi
     inc rdi
     dec rdx
