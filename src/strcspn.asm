@@ -4,6 +4,7 @@
 global fm_strcspn
 section .text
 fm_strcspn:
+    push rbx
     xor rax, rax
 
 .outer:
@@ -28,6 +29,7 @@ fm_strcspn:
     jmp .outer
 
 .done:
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
