@@ -703,7 +703,78 @@ Returns the original pointer `ptr`. Undefined behavior if `n` is `0`.
 
 ---
 
-36. `size_t fm_strlen(const char *s);`
+36. `bool fm_memends_with(const void *buf, size_t len, const void *suffix, size_t suffix_len);`
+
+Checks whether a memory buffer ends with a given `suffix`.
+
+- `buf` → memory buffer to check
+- `len` → size of buffer in bytes
+- `suffix` → suffix memory block
+- `suffix_len` → size of suffix in bytes
+
+Returns `true` if the last `suffix_len bytes` of `buf` match suffix, otherwise `false`.
+
+Returns `false` if `suffix_len > len`.
+
+---
+
+37. `void *fm_memchr3(const void *buf, int a, int b, int c, size_t n);`
+
+Searches for the first occurrence of any of three byte values.
+
+- `buf` → memory buffer
+- `a` → first byte to search
+- `b` → second byte to search
+- `c` → third byte to search
+- `n` → number of bytes to scan
+
+Returns a pointer to the first matching byte.
+
+Returns `NULL` if no match is found.
+
+---
+
+38. `void *fm_memdup_into(void *dst, const void *src, size_t n);`
+
+Copies `n` bytes from `src` to `dst`.
+
+- `dst` → destination buffer
+- `src` → source buffer
+- `n` → number of bytes to copy
+
+Returns the original pointer `dst`.
+
+---
+
+39. `ssize_t fm_memfirst_index(const void *buf, int c, size_t n);`
+
+Finds the index of the first occurrence of a byte.
+
+- `buf` → memory buffer
+- `c` → byte to search
+- `n` → number of bytes to scan
+
+Returns zero-based index of the first match.
+
+Returns `-1` if the byte is not found.
+
+---
+
+40. `ssize_t fm_memlast_index(const void *buf, int c, size_t n);`
+
+Finds the index of the last occurrence of a byte.
+
+- `buf` → memory buffer
+- `c` → byte to search
+- `n` → number of bytes to scan
+
+Returns zero-based index of the last match.
+
+Returns `-1` if the byte is not found.
+
+---
+
+41. `size_t fm_strlen(const char *s);`
 
 Returns the length of a null-terminated string.
 - `s` → string
@@ -712,7 +783,7 @@ Does not include the null terminator.
 
 ---
 
-37. `size_t fm_strnlen(const char *s, size_t n);`
+42. `size_t fm_strnlen(const char *s, size_t n);`
 
 Returns the length of a string, limited to n characters.
 - `s` → string
@@ -720,7 +791,7 @@ Returns the length of a string, limited to n characters.
 
 ---
 
-38. `char *fm_strchr(const char *s, int c);`
+43. `char *fm_strchr(const char *s, int c);`
 
 Finds the first occurrence of character `c` in a string.
 - `s` → string
@@ -730,7 +801,7 @@ Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-39. `char *fm_strrchr(const char *s, int c);`
+44. `char *fm_strrchr(const char *s, int c);`
 
 Finds the last occurrence of character `c` in a string.
 - `s` → string
@@ -740,7 +811,7 @@ Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-40. `int fm_strcmp(const char *a, const char *b);`
+45. `int fm_strcmp(const char *a, const char *b);`
 
 Compares two strings.
 - `a`, `b` → strings
@@ -752,7 +823,7 @@ Returns:
 
 ---
 
-41. `int fm_strncmp(const char *a, const char *b, size_t n);`
+46. `int fm_strncmp(const char *a, const char *b, size_t n);`
 
 Compares up to `n` characters of two strings.
 - `a`, `b` → strings
@@ -766,7 +837,7 @@ Returns:
 
 ---
 
-42. `char *fm_strcpy(char *dst, const char *src);`
+47. `char *fm_strcpy(char *dst, const char *src);`
  
 Copies a null-terminated string from `src` to `dst`.
 
@@ -777,7 +848,7 @@ Returns a pointer to `dst`.
 
 ---
 
-43. `char *fm_strncpy(char *dst, const char *src, size_t n);`
+48. `char *fm_strncpy(char *dst, const char *src, size_t n);`
 
 Copies up to `n` characters from `src` to `dst`.
 
@@ -789,7 +860,7 @@ Returns a pointer to `dst`.
 
 ---
 
-44. `char *fm_stpcpy(char *dst, const char *src);`
+49. `char *fm_stpcpy(char *dst, const char *src);`
 
 Copies a null-terminated string from `src` to `dst`.
 
@@ -800,7 +871,7 @@ Returns pointer to the null terminator in `dst`.
 
 ---
 
-45. `size_t fm_strspn(const char *s, const char *accept);`
+50. `size_t fm_strspn(const char *s, const char *accept);`
 
 Counts how many characters from the beginning of `s` match characters in `accept`.
 
@@ -811,7 +882,7 @@ Returns the count.
 
 ---
 
-46. `size_t fm_strcspn(const char *s, const char *reject);`
+51. `size_t fm_strcspn(const char *s, const char *reject);`
 
 Counts characters from the start of `s` until a character from `reject` is found.
 
@@ -822,7 +893,7 @@ Returns the count.
 
 ---
 
-47. `char *fm_strpbrk(const char *s, const char *accept);`
+52. `char *fm_strpbrk(const char *s, const char *accept);`
 
 Finds the first occurrence in `s` of any character from `accept`.
 
@@ -833,7 +904,7 @@ Returns a pointer to the first matching character, or `NULL` if none found.
 
 ---
 
-48. `char *fm_strcat(char *dst, const char *src);`
+53. `char *fm_strcat(char *dst, const char *src);`
 
 Appends the string `src` to the end of `dst`.
 - `dst` → destination string (must have enough space)
@@ -843,7 +914,7 @@ Returns the original pointer `dst`.
 
 ---
 
-49. `char *fm_strncat(char *dst, const char *src, size_t n);`
+54. `char *fm_strncat(char *dst, const char *src, size_t n);`
 
 Appends at most `n` characters from `src` to `dst`.
 - `dst` → destination string (must have enough space)
@@ -854,7 +925,7 @@ Returns the original pointer `dst`.
 
 ---
 
-50. `char *fm_strstr(const char *haystack, const char *needle);`
+55. `char *fm_strstr(const char *haystack, const char *needle);`
 
 Finds the first occurrence of the string `needle` in `haystack`.
 
@@ -865,7 +936,7 @@ Returns a pointer to the first occurrence, or `NULL` if not found.
 
 ---
 
-51. `char *fm_strrev(char *s);`
+56. `char *fm_strrev(char *s);`
 
 Reverses the string `s` in place.
 
@@ -875,7 +946,7 @@ Returns the original pointer `s`.
 
 ---
 
-52. `size_t fm_strcount(const char *s, int c);`
+57. `size_t fm_strcount(const char *s, int c);`
 
 Counts the number of occurrences of character `c` in the string `s`.
 
@@ -886,7 +957,7 @@ Returns the number of occurrences.
 
 ---
 
-53. `int fm_strcmp_i(const char *a, const char *b);`
+58. `int fm_strcmp_i(const char *a, const char *b);`
 
 Compares two strings case-insensitively.
 - `a` → first string
@@ -899,7 +970,7 @@ Returns:
 
 ---
 
-54. `int fm_strstartswith(const char *str, const char *prefix);`
+59. `int fm_strstartswith(const char *str, const char *prefix);`
 
 Checks whether a string starts with a given prefix.
 - `str` → input string
@@ -909,7 +980,7 @@ Returns `1` if `str` starts with `prefix`, otherwise `0`.
 
 ---
 
-55. `int fm_strendswith(const char *str, const char *suffix);`
+60. `int fm_strendswith(const char *str, const char *suffix);`
 
 Checks whether a string ends with a given suffix.
 - `str` → input string
@@ -919,7 +990,7 @@ Returns `1` if `str` ends with `suffix`, otherwise `0`.
 
 ---
 
-56. `char *fm_strnchr(const char *s, int c, size_t n);`
+61. `char *fm_strnchr(const char *s, int c, size_t n);`
 
 Searches for the first occurrence of character `c` in string `s`, examining at most `n` bytes.
 - `s` → pointer to the string
@@ -932,7 +1003,7 @@ Returns a pointer to the matched character, or `NULL` if not found.
 
 ---
 
-57. `char *fm_strnrev(char *s, size_t n);`
+62. `char *fm_strnrev(char *s, size_t n);`
 
 Reverses the first `n` bytes of string `s` in place.
 
@@ -945,7 +1016,7 @@ Returns the original pointer `s`.
 
 ---
 
-58. `int fm_strisalnum(const char *s);`
+63. `int fm_strisalnum(const char *s);`
 
 Checks whether the string `s` contains only alphanumeric characters.
 - `s` → pointer to the string
@@ -955,7 +1026,7 @@ Returns `1` if all characters are alphanumeric or the string is empty, otherwise
 
 ---
 
-59. `int fm_strcmp_eq(const char *a, const char *b);`
+64. `int fm_strcmp_eq(const char *a, const char *b);`
 
 Checks whether two null-terminated strings are equal.
 
@@ -966,7 +1037,7 @@ Returns `1` if strings are equal, otherwise `0`.
 
 ---
 
-60. `int fm_strncmp_i(const char *a, const char *b, size_t n);`
+65. `int fm_strncmp_i(const char *a, const char *b, size_t n);`
 
 Performs a case-insensitive comparison of two strings up to `n` characters
 (ASCII only).
@@ -979,7 +1050,7 @@ Returns `1` if strings are equal (ignoring case), otherwise `0`.
 
 ---
 
-61. `char *fm_strtrim(char *s);`
+66. `char *fm_strtrim(char *s);`
 
 Removes leading and trailing ASCII bytes ≤ 0x20 (spaces and control characters)
 from a string in place.
@@ -990,7 +1061,7 @@ Returns a pointer to the trimmed string.
 
 ---
 
-62. `int fm_strisempty(const char *s);`
+67. `int fm_strisempty(const char *s);`
 
 Checks whether a string is empty.
 
@@ -1000,7 +1071,7 @@ Returns `1` if the string is empty (""), otherwise `0`.
 
 ---
 
-63. `int fm_strnstartswith(const char *s, const char *prefix, size_t n);`
+68. `int fm_strnstartswith(const char *s, const char *prefix, size_t n);`
 
 Checks if string `s` starts with `prefix` within the first `n` characters.
 - `s` → string to check
@@ -1013,7 +1084,7 @@ Returns:
 
 ---
 
-64. `char *fm_strskip(const char *s, char c);`
+69. `char *fm_strskip(const char *s, char c);`
 
 Skips all leading occurrences of character `c` in string `s`.
 - `s` → string to process
@@ -1025,7 +1096,7 @@ Returns:
 
 ---
 
-65. `int fm_strnendswith(const char *s, const char *suffix, size_t n);`
+70. `int fm_strnendswith(const char *s, const char *suffix, size_t n);`
 
 Checks if string `s` ends with `suffix`, considering at most the last `n` characters.
 - `s` → string to check
@@ -1038,7 +1109,7 @@ Returns:
 
 ---
 
-66. `char *fm_strchrnul(const char *s, int c);`
+71. `char *fm_strchrnul(const char *s, int c);`
 
 Finds a character in a string or returns the string terminator.
 
@@ -1050,7 +1121,7 @@ If not found, returns a pointer to the null terminator.
 
 ---
 
-67. `size_t fm_strcount_char(const char *s, int c);`
+72. `size_t fm_strcount_char(const char *s, int c);`
 
 Counts how many times a character appears in a string.
 - `s` → null-terminated string
@@ -1060,7 +1131,7 @@ Returns the number of occurrences of `c`.
 
 ---
 
-68. `size_t fm_align_up(size_t value, size_t align);`
+73. `size_t fm_align_up(size_t value, size_t align);`
 
 Aligns a value upward to the nearest boundary.
 - `value` → input value
@@ -1070,7 +1141,7 @@ Returns the smallest aligned value greater than or equal to value.
 
 ---
 
-69. `int fm_strisalpha(const char *s);`
+74. `int fm_strisalpha(const char *s);`
 
 Checks whether all characters in the string are alphabetic ASCII letters.
 
@@ -1082,7 +1153,7 @@ Returns `0` otherwise
 
 ---
 
-70. `int fm_strisdigit(const char *s);`
+75. `int fm_strisdigit(const char *s);`
 
 Checks whether all characters in the string are decimal digits.
 
@@ -1094,7 +1165,7 @@ Returns `0` otherwise
 
 ---
 
-71. `int fm_strisspace(const char *s);`
+76. `int fm_strisspace(const char *s);`
 
 Checks whether all characters in the string are ASCII whitespace.
 
@@ -1108,7 +1179,7 @@ Returns `0` otherwise
 
 ---
 
-72. `int fm_strisprint(const char *s);`
+77. `int fm_strisprint(const char *s);`
 
 Checks whether all characters in the string are printable ASCII.
 
@@ -1122,7 +1193,7 @@ Returns `0` otherwise
 
 ---
 
-73. `int fm_strislower(const char *s);`
+78. `int fm_strislower(const char *s);`
 
 Checks whether all characters in the string are lowercase ASCII letters.
 
@@ -1134,7 +1205,7 @@ Returns `0` otherwise
 
 ---
 
-74. `int fm_strisupper(const char *s);`
+79. `int fm_strisupper(const char *s);`
 
 Checks whether all characters in the string are uppercase ASCII letters.
 
@@ -1146,7 +1217,7 @@ Returns `0` otherwise
 
 ---
 
-75. `int fm_strisxdigit(const char *s);`
+80. `int fm_strisxdigit(const char *s);`
 
 Checks whether all characters in the string are hexadecimal digits.
 
@@ -1160,7 +1231,7 @@ Returns `0` otherwise
 
 ---
 
-76. `int fm_strisascii(const char *s);`
+81. `int fm_strisascii(const char *s);`
 
 Checks whether all characters in the string are valid 7-bit ASCII.
 
@@ -1172,7 +1243,7 @@ Returns `0` otherwise
 
 ---
 
-77. `char *fm_strtolower(char *s);`
+82. `char *fm_strtolower(char *s);`
 
 Converts uppercase ASCII letters in a string to lowercase in-place.
 
@@ -1184,7 +1255,7 @@ Returns the original pointer `s`
 
 ---
 
-78. `char *fm_strtoupper(char *s);`
+83. `char *fm_strtoupper(char *s);`
 
 Converts lowercase ASCII letters in a string to uppercase in-place.
 
@@ -1196,7 +1267,7 @@ Returns the original pointer `s`
 
 ---
 
-79. `char *fm_strremove_char(char *s, int c);`
+84. `char *fm_strremove_char(char *s, int c);`
 
 Removes all occurrences of a character from a null-terminated string.
 
@@ -1207,7 +1278,7 @@ Returns the pointer to the original string.
 
 ---
 
-80. `char *fm_strrepeat(char *dst, const char *pattern, size_t count);`
+85. `char *fm_strrepeat(char *dst, const char *pattern, size_t count);`
 
 Repeats a pattern string multiple times into a destination buffer.
 
@@ -1216,6 +1287,74 @@ Repeats a pattern string multiple times into a destination buffer.
 - `count`   → number of repetitions
 
 Returns the pointer to the destination buffer. Null-terminates the result.
+
+---
+
+86. `size_t fm_strlcpy(char *dst, const char *src, size_t size);`
+
+Safely copies a string into a fixed-size buffer.
+
+- `dst` → destination buffer
+- `src` → source string
+- `size` → total size of destination buffer
+
+Copies up to `size-1` characters and always null-terminates if `size > 0`.
+
+Returns the length of `src`.
+
+---
+
+87. `size_t fm_strlcat(char *dst, const char *src, size_t size);`
+
+Safely appends a string to a fixed-size buffer.
+
+- `dst` → destination buffer containing a null-terminated string
+- `src` → string to append
+- `size` → total size of destination buffer
+
+Appends as many characters as fit and always null-terminates if space permits.
+
+Returns initial length of `dst` plus length of `src`.
+
+---
+
+88. `char *fm_strswapcase(char *s);`
+
+Converts uppercase letters to lowercase and lowercase letters to uppercase.
+
+- `s` → null-terminated string
+
+Modifies the string in place.
+
+Returns the original pointer s.
+
+---
+
+89. `char *fm_strstrip_left(char *s);`
+
+Skips leading whitespace characters.
+
+- `s` → null-terminated string
+
+Does not modify memory.
+
+Returns a pointer to the first non-whitespace character.
+
+Whitespace characters handled: space, tab, newline, carriage return.
+
+---
+
+90. `char *fm_strstrip_right(char *s);`
+
+Removes trailing whitespace characters.
+
+- `s` → null-terminated string
+
+Modifies the string in place by writing null terminators.
+
+Returns the original pointer `s`.
+
+Whitespace characters handled: space, tab, newline, carriage return.
 
 ---
 
