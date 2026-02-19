@@ -4,6 +4,7 @@
 global fm_memswap
 section .text
 fm_memswap:
+    push rbx
     test rdx, rdx
     jz .done
 .loop:
@@ -16,6 +17,7 @@ fm_memswap:
     dec rdx
     jnz .loop
 .done:
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
