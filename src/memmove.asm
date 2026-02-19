@@ -4,24 +4,36 @@
 extern fm_memcpy
 global fm_memmove
 section .text
-
 fm_memmove:
     mov rax, rdi
-    cmp rdi, rsi
-    jb .forward
-    lea rsi, [rsi+rdx-1]
-    lea rdi, [rdi+rdx-1]
-.backward:
     test rdx, rdx
     jz .done
-    mov bl, [rsi]
-    mov [rdi], bl
+
+    cmp rdi, rsi
+    je .done
+
+    mov rcx, rsi
+    add rcx, rdx
+    cmp rdi, rsi
+    jb .forward
+    cmp rdi, rcx
+    jae .forward
+
+    lea rsi, [rsi+rdx-1]
+    lea rdi, [rdi+rdx-1]
+
+.backward:
+    mov al, [rsi]
+    mov [rdi], al
     dec rsi
     dec rdi
     dec rdx
-    jmp .backward
+    jnz .backward
+    ret
+
 .forward:
-    call fm_memcpy
+    jmp fm_memcpy
+
 .done:
     ret
 
