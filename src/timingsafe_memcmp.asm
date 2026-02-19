@@ -4,6 +4,7 @@
 global fm_timingsafe_memcmp
 section .text
 fm_timingsafe_memcmp:
+    push rbx
     xor eax, eax
     xor rcx, rcx
 .loop:
@@ -15,6 +16,7 @@ fm_timingsafe_memcmp:
     inc rcx
     jmp .loop
 .done:
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
