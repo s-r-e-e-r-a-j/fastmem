@@ -101,7 +101,7 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memchr3`
 
-`fm_memdup_into`
+`fm_memstarts_with`
 
 `fm_memfirst_index`
 
