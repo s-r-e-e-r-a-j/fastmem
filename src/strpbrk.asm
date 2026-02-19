@@ -4,6 +4,7 @@
 global fm_strpbrk
 section .text
 fm_strpbrk:
+    push rbx
 .outer:
     mov al, [rdi]
     test al, al
@@ -26,10 +27,12 @@ fm_strpbrk:
 
 .found:
     mov rax, rdi
+    pop rbx
     ret
 
 .null:
     xor rax, rax
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
