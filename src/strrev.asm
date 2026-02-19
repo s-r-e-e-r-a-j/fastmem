@@ -4,22 +4,28 @@
 global fm_strrev
 section .text
 fm_strrev:
+    push rbx
     test rdi, rdi
     jz .done
+
     mov r8, rdi
     mov rsi, rdi
 
 .find_end:
     cmp byte [rsi], 0
-    je .reverse
+    je .check_empty
     inc rsi
     jmp .find_end
 
-.reverse:
+.check_empty:
+    cmp rsi, rdi
+    je .return_original
+
     dec rsi
+
 .reverse_loop:
     cmp rdi, rsi
-    jge .done_loop
+    jge .return_original
     mov al, [rdi]
     mov bl, [rsi]
     mov [rdi], bl
@@ -28,12 +34,14 @@ fm_strrev:
     dec rsi
     jmp .reverse_loop
 
-.done_loop:
+.return_original:
     mov rax, r8
+    pop rbx
     ret
 
 .done:
     xor rax, rax
+    pop rbx
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
