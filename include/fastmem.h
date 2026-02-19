@@ -5,6 +5,7 @@
 #define FASTMEM_H
 
 #include <stddef.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,6 +47,11 @@ size_t fm_memreplace(void *ptr, size_t n, int oldv, int newv);
 int fm_memisuniform(const void *ptr, size_t n);
 void *fm_memrotate_left(void *ptr, size_t n, size_t k);
 void *fm_memrotate_right(void *ptr, size_t n, size_t k);
+bool fm_memends_with(const void *buf, size_t len, const void *suffix, size_t suffix_len);
+void *fm_memchr3(const void *buf, int a, int b, int c, size_t n);
+void *fm_memdup_into(void *dst, const void *src, size_t n);
+ssize_t fm_memfirst_index(const void *buf, int c, size_t n);
+ssize_t fm_memlast_index(const void *buf, int c, size_t n);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -93,6 +99,11 @@ char *fm_strtolower(char *s);
 char *fm_strtoupper(char *s);
 char *fm_strremove_char(char *s, int c);
 char *fm_strrepeat(char *dst, const char *pattern, size_t count);
+size_t fm_strlcpy(char *dst, const char *src, size_t size);
+size_t fm_strlcat(char *dst, const char *src, size_t size);
+char *fm_strswapcase(char *s);
+char *fm_strstrip_left(char *s);
+char *fm_strstrip_right(char *s);
 
 #ifdef __cplusplus
 }
