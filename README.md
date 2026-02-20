@@ -107,6 +107,20 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 
 `fm_memlast_index`
 
+`fm_memclear_range`
+
+`fm_memrepeat`
+
+`fm_memfill_increment`
+
+`fm_memxor_pattern`
+
+`fm_memswap_ranges`
+
+`fm_memset16`
+
+`fm_memset64`
+
 ### String functions
 
 `fm_strlen`
@@ -208,6 +222,12 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 `fm_strstrip_left`
 
 `fm_strstrip_right`
+
+`fm_strreplace_char`
+
+`fm_strreverse_words`
+
+`fm_strtruncate`
 
 ---
 
