@@ -23,8 +23,8 @@ fm_memmove:
     lea rdi, [rdi+rdx-1]
 
 .backward:
-    mov al, [rsi]
-    mov [rdi], al
+    mov r8b, [rsi]
+    mov [rdi], r8b
     dec rsi
     dec rdi
     dec rdx
