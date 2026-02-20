@@ -6,6 +6,8 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
+#include <sys/types.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -52,6 +54,13 @@ void *fm_memchr3(const void *buf, int a, int b, int c, size_t n);
 bool fm_memstarts_with(const void *buf, size_t len, const void *prefix, size_t prefix_len);
 ssize_t fm_memfirst_index(const void *buf, int c, size_t n);
 ssize_t fm_memlast_index(const void *buf, int c, size_t n);
+void fm_memclear_range(void *ptr, size_t start, size_t len);
+void fm_memrepeat(void *dst, const void *src, size_t len, size_t repeat_count);
+void fm_memfill_increment(void *dst, uint8_t start_value, size_t len);
+void fm_memxor_pattern(void *dst, const void *pattern, size_t pattern_len, size_t len);
+void fm_memswap_ranges(void *a, void *b, size_t len);
+void fm_memset16(void *ptr, uint16_t value, size_t count);
+void fm_memset64(void *ptr, uint64_t value, size_t count);
 
 /* String functions */
 size_t fm_strlen(const char *s);
@@ -104,6 +113,9 @@ size_t fm_strlcat(char *dst, const char *src, size_t size);
 char *fm_strswapcase(char *s);
 char *fm_strstrip_left(char *s);
 char *fm_strstrip_right(char *s);
+void fm_strreplace_char(char *str, char old_char, char new_char);
+void fm_strreverse_words(char *str);
+void fm_strtruncate(char *str, size_t n);
 
 #ifdef __cplusplus
 }
